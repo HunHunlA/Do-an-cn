@@ -2299,6 +2299,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 224047778984712946, guid: 3066c3a8fcfd6fc4482868bf62045594, type: 3}
   m_PrefabInstance: {fileID: 1650458726}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1759480156 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 119982474336770128, guid: d473d7b86b01dfd438bc343a1b90fb4c, type: 3}
+  m_PrefabInstance: {fileID: 359342337147339465}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1807726639
 GameObject:
   m_ObjectHideFlags: 0
@@ -2961,6 +2966,18 @@ PrefabInstance:
       propertyPath: healthFill
       value: 
       objectReference: {fileID: 865587183}
+    - target: {fileID: 6745538952108583648, guid: d473d7b86b01dfd438bc343a1b90fb4c, type: 3}
+      propertyPath: attackPoint
+      value: 
+      objectReference: {fileID: 1759480156}
+    - target: {fileID: 6745538952108583648, guid: d473d7b86b01dfd438bc343a1b90fb4c, type: 3}
+      propertyPath: attackRange
+      value: 119.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6745538952108583648, guid: d473d7b86b01dfd438bc343a1b90fb4c, type: 3}
+      propertyPath: groundCheck
+      value: 
+      objectReference: {fileID: 1454681578}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -230,25 +230,23 @@ public class voi : MonoBehaviour
         // Hiển thị phạm vi tấn công trong cửa sổ Scene (để dễ điều chỉnh)
     void OnDrawGizmosSelected()
         {
-            if (attackPoint == null)
-                return;
 
             // Hiển thị phạm vi bắn đạn
             Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
 
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireSphere(transform.position, earthquakeRange);
             // Hiển thị phạm vi địa chấn
             if (useEarthquake)
             {
-                Gizmos.color = Color.yellow;
-                Gizmos.DrawWireSphere(transform.position, earthquakeRange);
             }
 
             // Hiển thị phạm vi kiểm tra mặt đất
             Gizmos.color = Color.green;
+                Gizmos.DrawWireSphere(groundCheck.position, 0.2f);
             if (groundCheck != null)
             {
-                Gizmos.DrawWireSphere(groundCheck.position, 0.2f);
             }
         }
     }
