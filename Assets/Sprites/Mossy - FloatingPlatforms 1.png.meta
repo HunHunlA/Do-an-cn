@@ -372,7 +372,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Mossy - FloatingPlatforms 1_0: 3173094743298350824
+      Mossy - FloatingPlatforms 1_1: -3039548127254361781
+      Mossy - FloatingPlatforms 1_2: 1682221960025737812
+      Mossy - FloatingPlatforms 1_3: -2290996633886881907
+      Mossy - FloatingPlatforms 1_4: -8618411242902194702
+      Mossy - FloatingPlatforms 1_5: 6110736259866790727
+      Mossy - FloatingPlatforms 1_6: 8035465677618572021
+      Mossy - FloatingPlatforms 1_7: 2845510566374878945
+      Mossy - FloatingPlatforms 1_8: -1078608549134842593
+      Mossy - FloatingPlatforms 1_9: -3579704159027197702
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
