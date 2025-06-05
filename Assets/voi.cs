@@ -35,9 +35,20 @@ public class voi : MonoBehaviour
     private float nextAttackTime = 0f;
     private Animator animator; // Nếu bạn có animation
 
+    public int maxHealth = 100;
+    public int health = 100;
+
     void Start()
     {
         animator = GetComponent<Animator>(); // Lấy component Animator nếu có
+        rb = GetComponent<Rigidbody2D>(); // Lấy component Rigidbody2D
+
+        // Nếu không có Rigidbody2D, hiển thị cảnh báo
+        if (rb == null)
+        {
+            Debug.LogWarning("Enemy cần có component Rigidbody2D để thực hiện nhảy!");
+        }
+        health = maxHealth; // Khởi tạo máu
     }
 
     void Update()
@@ -72,6 +83,23 @@ public class voi : MonoBehaviour
     }
 
 
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        Debug.Log("Enemy bị mất " + damage + " máu, còn lại: " + health);
+
+        if (health <= 0)
+        {
+            Die();
+        }
+    }
+
+    void Die()
+    {
+        Debug.Log("Enemy đã chết!");
+        // Thêm hiệu ứng chết, animation, v.v. nếu cần
+        Destroy(gameObject);
+    }
     void Attack()
     {
         // Đặt thời gian cho lần tấn công tiếp theo
@@ -99,6 +127,7 @@ public class voi : MonoBehaviour
             }
         }
     }
+    
     void ShootBullet()
     {
         Debug.Log("Enemy đang bắn đạn!");
@@ -154,7 +183,12 @@ public class voi : MonoBehaviour
         {
             animator.SetTrigger("Earthquake");
         }
-
+        // Thực hiện nhảy cho Enemy
+        if (rb != null && isGrounded)
+        {
+            rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
+            Debug.Log("Enemy nhảy lên khi tạo địa chấn!");
+        }
         // Hiển thị hiệu ứng địa chấn (nếu có)
         if (earthquakeEffectPrefab != null)
         {
@@ -191,12 +225,28 @@ public class voi : MonoBehaviour
             }
         }
         // Hiển thị phạm vi tấn công trong cửa sổ Scene (để dễ điều chỉnh)
-        void OnDrawGizmosSelected()
+    void OnDrawGizmosSelected()
         {
             if (attackPoint == null)
                 return;
 
+            // Hiển thị phạm vi bắn đạn
+            Gizmos.color = Color.red;
             Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+
+            // Hiển thị phạm vi địa chấn
+            if (useEarthquake)
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireSphere(transform.position, earthquakeRange);
+            }
+
+            // Hiển thị phạm vi kiểm tra mặt đất
+            Gizmos.color = Color.green;
+            if (groundCheck != null)
+            {
+                Gizmos.DrawWireSphere(groundCheck.position, 0.2f);
+            }
         }
     }
     // Hiển thị phạm vi tấn công trong cửa sổ Scene (để dễ điều chỉnh)
