@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameObject popupDamage;
     public Player player;
+    public GameObject panel;
     private void Awake()
     {
         if (instance == null)

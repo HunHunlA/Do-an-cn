@@ -95,20 +95,21 @@ public class EnemyBase : MonoBehaviour
     protected virtual void AutoChangeState() { }
     public virtual void TakeDamage(int value)
     {
+
+        currentHealth -= value;
         if (!isAttacking)
         {
             skeletonAnimation.state.SetAnimation(0, takeDamage, false);
         }
-        currentHealth -= value;
 
-        GameManager.instance.PopupDamage(transform, value);
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            healthFill.fillAmount = currentHealth / 100f;
-
+            GameManager.instance.panel.SetActive(true);
             Die();
         }
+        GameManager.instance.PopupDamage(transform, value);
+        healthFill.fillAmount = currentHealth / 100f;
     }
     protected virtual void Flip()
     {
