@@ -22,33 +22,33 @@ AnimationClip:
     curve:
     - time: 0
       value: {fileID: 21300000, guid: 83145512fd5594e4c8730c7fcf113bd1, type: 3}
-    - time: 0.083333336
+    - time: 0.05
       value: {fileID: 21300000, guid: 535e176bcf9640c488c208384288429b, type: 3}
-    - time: 0.2
+    - time: 0.1
       value: {fileID: 21300000, guid: 44e928081f9b7e246869e75e8eac7d1f, type: 3}
-    - time: 0.28333333
+    - time: 0.16666667
       value: {fileID: 21300000, guid: 5e905519715c3204fb02747865dd7c1b, type: 3}
-    - time: 0.38333333
+    - time: 0.21666667
       value: {fileID: 21300000, guid: c11f2b4de85fec2478d13fe27848a756, type: 3}
-    - time: 0.46666667
+    - time: 0.25
       value: {fileID: 21300000, guid: 1626f9f68637d9946ab595aa2fc501e2, type: 3}
-    - time: 0.5833333
+    - time: 0.31666666
       value: {fileID: 21300000, guid: d93976ec746c5694a8e443ad32d8b85d, type: 3}
-    - time: 0.6666667
+    - time: 0.36666667
       value: {fileID: 21300000, guid: a2c21f48079211445aac7ac4a3cbe881, type: 3}
-    - time: 0.75
+    - time: 0.43333334
       value: {fileID: 21300000, guid: e529ec409f4b9a549a0fbcd5cf471d2b, type: 3}
-    - time: 0.8666667
+    - time: 0.5
       value: {fileID: 21300000, guid: 178b17c16875da149a388bedb3793dbf, type: 3}
-    - time: 0.95
+    - time: 0.53333336
       value: {fileID: 21300000, guid: 01ebf4d5c490baa4397609f8a859ba7a, type: 3}
-    - time: 1.05
+    - time: 0.5833333
       value: {fileID: 21300000, guid: face95fc0b98f5343b231c5e8bfbe94f, type: 3}
-    - time: 1.1333333
+    - time: 0.65
       value: {fileID: 21300000, guid: f466344e2548f9a4283f8254793f3970, type: 3}
-    - time: 1.25
+    - time: 0.7
       value: {fileID: 21300000, guid: 43400baca495526469ef015ff24a171f, type: 3}
-    - time: 1.3333334
+    - time: 0.75
       value: {fileID: 21300000, guid: 2ef2e834de6998841a958101c9fdb5ec, type: 3}
     attribute: m_Sprite
     path: 
@@ -92,7 +92,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.35
+    m_StopTime: 0.76666665
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
