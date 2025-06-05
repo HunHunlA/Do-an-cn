@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public GameObject bulletPrefab;
+    public GameObject canChienPrefab;
     public Animator animator;
     public Rigidbody2D rb;
     public float movement;
@@ -20,6 +21,7 @@ public class Player : MonoBehaviour
     public Transform attackPoint;
     public float shootCD = 1f;
     public Coroutine shootBulletCoroutine;
+    public Coroutine canChienCoroutine;
     public Image healthFill;
 
 
@@ -63,6 +65,23 @@ public class Player : MonoBehaviour
         else {
             animator.SetTrigger("Attack3");
         }
+        CanChienButton();
+    }
+
+    public void CanChienButton()
+    {
+        if (canChienCoroutine != null)
+        {
+            StopCoroutine(canChienCoroutine);
+        }
+        canChienCoroutine = StartCoroutine(SpawnCanChien());
+    }
+
+    public IEnumerator SpawnCanChien()
+    {
+        yield return new WaitForSeconds(0.5f);
+        var canChien = Instantiate(canChienPrefab, attackPoint.position, Quaternion.identity);
+        var canChienRb = canChien.GetComponent<Rigidbody2D>();
     }
 
     public void JumpButton()
@@ -117,6 +136,7 @@ public class Player : MonoBehaviour
         if (health <= 0) {
             animator.SetTrigger("Die");
             health = 0;
+            gameObject.SetActive(false);
         }
     }
 }

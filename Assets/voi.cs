@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class voi : MonoBehaviour
@@ -94,14 +95,8 @@ public class voi : MonoBehaviour
         {
          
             health = 0;
+            gameObject.SetActive(false);
         }
-    }
-
-    void Die()
-    {
-        Debug.Log("Enemy đã chết!");
-        // Thêm hiệu ứng chết, animation, v.v. nếu cần
-        Destroy(gameObject);
     }
     void Attack()
     {
@@ -228,31 +223,12 @@ public class voi : MonoBehaviour
             }
         }
         // Hiển thị phạm vi tấn công trong cửa sổ Scene (để dễ điều chỉnh)
-    void OnDrawGizmosSelected()
+        void OnDrawGizmosSelected()
         {
-
-            // Hiển thị phạm vi bắn đạn
             Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(attackPoint.position, attackRange);
-
-                Gizmos.color = Color.yellow;
-                Gizmos.DrawWireSphere(transform.position, earthquakeRange);
-            // Hiển thị phạm vi địa chấn
-            if (useEarthquake)
-            {
-            }
-
-            // Hiển thị phạm vi kiểm tra mặt đất
-            Gizmos.color = Color.green;
-                Gizmos.DrawWireSphere(groundCheck.position, 0.2f);
-            if (groundCheck != null)
-            {
-            }
+            Gizmos.DrawWireSphere(transform.position, earthquakeRange);
         }
     }
-    // Hiển thị phạm vi tấn công trong cửa sổ Scene (để dễ điều chỉnh)
 
-
-
-}
+    }
 
