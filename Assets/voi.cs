@@ -41,6 +41,7 @@ public class voi : MonoBehaviour
     public int health = 100;
 
     public Image healthFill;
+    public Image panel;
     void Start()
     {
         animator = GetComponent<Animator>(); // Lấy component Animator nếu có
@@ -68,21 +69,22 @@ public class voi : MonoBehaviour
 
             if (hitPlayers.Length > 0)
             {
+                Debug.Log("Enemy có thể tấn công người chơi!");
                 Attack();
             }
         }
 
-        // Kiểm tra xem có thể tạo địa chấn không
-        if (useEarthquake && Time.time >= nextEarthquakeTime)
-        {
-            // Kiểm tra nếu người chơi ở trong phạm vi địa chấn (lớn hơn phạm vi tấn công thông thường)
-            Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(transform.position, earthquakeRange, playerLayer);
+        //// Kiểm tra xem có thể tạo địa chấn không
+        //if (useEarthquake && Time.time >= nextEarthquakeTime)
+        //{
+        //    // Kiểm tra nếu người chơi ở trong phạm vi địa chấn (lớn hơn phạm vi tấn công thông thường)
+        //    Collider2D[] hitPlayers = Physics2D.OverlapCircleAll(transform.position, earthquakeRange, playerLayer);
 
-            if (hitPlayers.Length > 0)
-            {
-                CreateEarthquake();
-            }
-        }
+        //    if (hitPlayers.Length > 0)
+        //    {
+        //        CreateEarthquake();
+        //    }
+        //}
     }
 
 
@@ -93,9 +95,9 @@ public class voi : MonoBehaviour
         healthFill.fillAmount = health / 100f;
         if (health <= 0)
         {
-         
             health = 0;
             gameObject.SetActive(false);
+            panel.gameObject.SetActive(true); 
         }
     }
     void Attack()

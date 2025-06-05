@@ -2,6 +2,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.Reflection;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour
@@ -132,11 +133,16 @@ public class Player : MonoBehaviour
     {
         health -= damage;
         animator.SetTrigger("TakeDamage");
-        healthFill.fillAmount = health / 100f; 
+        healthFill.fillAmount = health / 100f;
+        GameManager.instance.PopupDamage(transform, damage);
         if (health <= 0) {
             animator.SetTrigger("Die");
             health = 0;
             gameObject.SetActive(false);
         }
+    }
+    public void ChoiLai()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }

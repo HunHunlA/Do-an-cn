@@ -3,28 +3,43 @@
 public class Dan : MonoBehaviour
 {
     public int damage = 10;
-
-    void OnTriggerEnter2D(Collider2D collision)
+    public float speed;
+    private Rigidbody2D rb2d;
+    private Vector2 initPos;
+    private Vector2 initScale;
+    private void Awake()
     {
-        // Ki?m tra n?u ??n ch?m vào Player
-        if (collision.gameObject.CompareTag("Player"))
+        rb2d = GetComponent<Rigidbody2D>();
+    }
+    private void Start()
+    {
+        initScale = transform.localScale;
+    }
+    private void OnEnable()
+    {
+        initPos = transform.position;
+        Vector3 playerPos = GameManager.instance.player.transform.position;
+        Vector2 direction = (playerPos - transform.position).normalized;
+        rb2d.linearVelocity = direction * speed;
+    }
+    private void OnDisable()
+    {
+        transform.localScale = initScale;
+    }
+    private void Update()
+    {
+        if (Vector2.Distance(transform.position, initPos) > 20f)
         {
-            // Gây sát th??ng cho Player
-            Player player = collision.gameObject.GetComponent<Player>();
-            if (player != null)
-            {
-                // N?u Player có ph??ng th?c TakeDamage, g?i nó
-                // player.TakeDamage(damage);
-                Debug.Log("Bắn trúng người chơi và gây " + damage + " sát thương!");
-            }
-
-            // H?y ??n sau khi trúng player
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
-        else if (!collision.CompareTag("Enemy")) // Không h?y n?u ch?m vào enemy (ng??i b?n)
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
         {
-            // H?y ??n n?u ch?m vào các v?t th? khác (nh? t??ng, m?t ??t)
-            Destroy(gameObject);
+            gameObject.SetActive(false);
+
+            collision.GetComponent<Player>().TakeDamage(damage);
         }
     }
 }
