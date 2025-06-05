@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class voi : MonoBehaviour
 {
@@ -38,6 +39,7 @@ public class voi : MonoBehaviour
     public int maxHealth = 100;
     public int health = 100;
 
+    public Image healthFill;
     void Start()
     {
         animator = GetComponent<Animator>(); // Lấy component Animator nếu có
@@ -86,11 +88,12 @@ public class voi : MonoBehaviour
     public void TakeDamage(int damage)
     {
         health -= damage;
-        Debug.Log("Enemy bị mất " + damage + " máu, còn lại: " + health);
-
+       
+        healthFill.fillAmount = health / 100f;
         if (health <= 0)
         {
-            Die();
+         
+            health = 0;
         }
     }
 
