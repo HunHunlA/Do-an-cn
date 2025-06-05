@@ -1,23 +1,28 @@
+using System.Collections;
+using System.ComponentModel;
+using System.Reflection;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    public GameObject bulletPrefab;
     public Animator animator;
     public Rigidbody2D rb;
     public float movement;
     public float speed = 5f;
     public float jumpHeight = 7f;
+    public float health = 100;
 
+    public bool canShoot = true;
     public bool isGround = true;
     public bool facingRight = true;
+    public Transform attackPoint;
+    public float shootCD = 1f;
+    public Coroutine shootBulletCoroutine;
+    public Image healthFill;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
     void Update()
     {
         movement = Input.GetAxis("Horizontal");
@@ -78,5 +83,40 @@ public class Player : MonoBehaviour
             animator.SetBool("Jump", false);
         }
     }
-
+    public void ShootButton()
+    {
+        if(canShoot == false) {
+            return;
+        }
+        if (shootBulletCoroutine != null) {
+            StopCoroutine(shootBulletCoroutine);
+        }
+        shootBulletCoroutine = StartCoroutine(ShootBullet());
+    }
+    public IEnumerator ShootBullet()
+    {
+        canShoot = false;
+        animator.SetTrigger("Attack1");
+        yield return new WaitForSeconds(0.5f);
+        var bullet = Instantiate(bulletPrefab, attackPoint.position, Quaternion.identity);
+        var bulletRb = bullet.GetComponent<Rigidbody2D>();
+        if (facingRight) {
+            bulletRb.AddForce(new Vector2(1f, 0f) * 20f, ForceMode2D.Impulse);
+        }
+        else {
+            bulletRb.AddForce(new Vector2(-1f, 0f) * 20f, ForceMode2D.Impulse);
+        }
+        yield return new WaitForSeconds(shootCD);
+        canShoot = true;
+    }
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        animator.SetTrigger("TakeDamage");
+        healthFill.fillAmount = health / 100f; 
+        if (health <= 0) {
+            animator.SetTrigger("Die");
+            health = 0;
+        }
+    }
 }
