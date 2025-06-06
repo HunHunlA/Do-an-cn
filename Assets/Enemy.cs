@@ -56,6 +56,7 @@ public class Enemy : EnemyBase
         skeletonAnimation.state.SetAnimation(0, specialAttack, false);
         float duration = attack.Animation.Duration;
         yield return new WaitForSeconds(duration / 1.75f);
+        AudioManager.instance.PlaySFX("EnemyShoot");
         Instantiate(bullet, firePoint.position, Quaternion.identity);
         usedSpecialAttack = true;
     }
@@ -89,6 +90,8 @@ public class Enemy : EnemyBase
         skeletonAnimation.state.SetAnimation(0, attack, false);
         float duration = attack.Animation.Duration;
         yield return new WaitForSeconds(duration / (skeletonAnimation.timeScale * 2f));
+        AudioManager.instance.PlaySFX("EnemyShoot");
+
         Instantiate(bullet, firePoint.position, Quaternion.identity);
         isAttacking = false;
     }

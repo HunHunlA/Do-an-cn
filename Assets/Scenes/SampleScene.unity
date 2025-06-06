@@ -573,6 +573,98 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &357023928
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 357023930}
+  - component: {fileID: 357023929}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &357023929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357023928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4673243ad7e81b84f8e9d2b30794e4f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMutingBGM: 0
+  isMutingSFX: 0
+  BGMVolume: 1
+  SFXVolume: 1
+  BGMSoundList:
+  - name: Theme
+    audioClip: {fileID: 8300000, guid: 03454f515d8098f41ac1f5e5b05daede, type: 3}
+    audioSource: {fileID: 0}
+    volume: 1
+    pitch: 1
+    loop: 1
+    mute: 0
+  SFXSoundList:
+  - name: PlayerShoot
+    audioClip: {fileID: 8300000, guid: 4f2e525b0339b784087f0006800c5c5a, type: 3}
+    audioSource: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    mute: 0
+  - name: EnemyShoot
+    audioClip: {fileID: 8300000, guid: f0c2575a72dfcd8408ae7feeb438284b, type: 3}
+    audioSource: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    mute: 0
+  - name: PlayerDie
+    audioClip: {fileID: 8300000, guid: 604c1327744be844c9548841e7499e6f, type: 3}
+    audioSource: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    mute: 0
+  - name: EnemyDie
+    audioClip: {fileID: 8300000, guid: c5f344d785b2eb142b8815f2187f0cc0, type: 3}
+    audioSource: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    mute: 0
+  - name: PlayerCanChien
+    audioClip: {fileID: 8300000, guid: 8822caa1365e0ae458867de4c510f180, type: 3}
+    audioSource: {fileID: 0}
+    volume: 0
+    pitch: 0
+    loop: 0
+    mute: 0
+--- !u!4 &357023930
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357023928}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1511.25, y: 906.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &357132664
 GameObject:
   m_ObjectHideFlags: 0
@@ -3895,7 +3987,7 @@ PrefabInstance:
       objectReference: {fileID: 6942282423047192481, guid: 62cdbe83bf8281243b5951b6273b779a, type: 3}
     - target: {fileID: 4616154387151826327, guid: 0beb1dec2dd24d14ba57d916f06bb6aa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 9.26
+      value: -5.53
       objectReference: {fileID: 0}
     - target: {fileID: 4616154387151826327, guid: 0beb1dec2dd24d14ba57d916f06bb6aa, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3970,3 +4062,4 @@ SceneRoots:
   - {fileID: 89236597567056598}
   - {fileID: 1384835758}
   - {fileID: 663667376}
+  - {fileID: 357023930}

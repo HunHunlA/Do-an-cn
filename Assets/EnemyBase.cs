@@ -104,6 +104,7 @@ public class EnemyBase : MonoBehaviour
 
         if (currentHealth <= 0)
         {
+            AudioManager.instance.PlaySFX("EnemyDie");
             currentHealth = 0;
             GameManager.instance.panel.SetActive(true);
             Die();

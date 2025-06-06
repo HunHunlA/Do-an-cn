@@ -118,6 +118,7 @@ public class Player : MonoBehaviour
         canShoot = false;
         animator.SetTrigger("Attack1");
         yield return new WaitForSeconds(0.5f);
+        AudioManager.instance.PlaySFX("PlayerShoot");
         var bullet = Instantiate(bulletPrefab, attackPoint.position, Quaternion.identity);
         var bulletRb = bullet.GetComponent<Rigidbody2D>();
         if (facingRight) {
@@ -139,6 +140,7 @@ public class Player : MonoBehaviour
             animator.SetTrigger("Die");
             health = 0;
             gameObject.SetActive(false);
+            AudioManager.instance.PlaySFX("PlayerDie");
         }
     }
     public void ChoiLai()
