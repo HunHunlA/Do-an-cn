@@ -1300,6 +1300,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   popupDamage: {fileID: 1787705033586561992, guid: 99302114926b4b64d85b5b2a7eb453ee, type: 3}
   player: {fileID: 1598590856}
+  panel: {fileID: 75792048}
 --- !u!4 &663667376
 Transform:
   m_ObjectHideFlags: 0
@@ -2144,7 +2145,7 @@ MonoBehaviour:
   moveSpeed: 10
   maxHealth: 100
   currentHealth: 100
-  damage: 10
+  damage: 5
   countTime: 1
   attackTime: 3
   firePoint: {fileID: 98498436}
