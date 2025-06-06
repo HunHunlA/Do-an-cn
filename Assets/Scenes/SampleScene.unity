@@ -618,36 +618,36 @@ MonoBehaviour:
   - name: PlayerShoot
     audioClip: {fileID: 8300000, guid: 4f2e525b0339b784087f0006800c5c5a, type: 3}
     audioSource: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     mute: 0
   - name: EnemyShoot
     audioClip: {fileID: 8300000, guid: f0c2575a72dfcd8408ae7feeb438284b, type: 3}
     audioSource: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     mute: 0
   - name: PlayerDie
     audioClip: {fileID: 8300000, guid: 604c1327744be844c9548841e7499e6f, type: 3}
     audioSource: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     mute: 0
   - name: EnemyDie
     audioClip: {fileID: 8300000, guid: c5f344d785b2eb142b8815f2187f0cc0, type: 3}
     audioSource: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     mute: 0
   - name: PlayerCanChien
     audioClip: {fileID: 8300000, guid: 8822caa1365e0ae458867de4c510f180, type: 3}
     audioSource: {fileID: 0}
-    volume: 0
-    pitch: 0
+    volume: 1
+    pitch: 1
     loop: 0
     mute: 0
 --- !u!4 &357023930
