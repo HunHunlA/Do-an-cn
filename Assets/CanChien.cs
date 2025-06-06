@@ -11,7 +11,7 @@ public class CanChien : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-            voi v = collision.GetComponent<voi>();
+            Enemy v = collision.GetComponent<Enemy>();
             if (v != null)
             {
                 v.TakeDamage(10);

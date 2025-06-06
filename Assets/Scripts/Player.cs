@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public Rigidbody2D rb;
     public float movement;
     public float speed = 5f;
-    public float jumpHeight = 7f;
+    public float jumpHeight = 10f;
     public float health = 100;
 
     public bool canShoot = true;
@@ -141,6 +141,7 @@ public class Player : MonoBehaviour
             health = 0;
             gameObject.SetActive(false);
             AudioManager.instance.PlaySFX("PlayerDie");
+            GameManager.instance.panel.gameObject.SetActive(true);
         }
     }
     public void ChoiLai()
